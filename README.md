@@ -1,2 +1,2 @@
 # digitalArtStore
-3155 Final Project
+3155 Sprint2 Labs
