@@ -51,13 +51,17 @@ function getCart($email) {
 
 function deleteItem($id) {
     $.ajax({
-        url: Url + '{id}',
+        url: Url + 'RemoveProduct',
         type: 'delete',
         dataType: 'json',
         data: {"product_id":$id},
         contentType: 'text/plain',
         success: function (data) {
-            
+            comment='';
+
+        },
+        error: function (data) {
+            alert("Error while fetching data.");
         }
 }
 
