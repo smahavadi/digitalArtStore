@@ -50,7 +50,15 @@ function getCart($email) {
 }
 
 function deleteItem($id) {
-    //function body
+    $.ajax({
+        url: Url + '{id}',
+        type: 'delete',
+        dataType: 'json',
+        data: {"product_id":$id},
+        contentType: 'text/plain',
+        success: function (data) {
+            
+        }
 }
 
 function checkOut() {
