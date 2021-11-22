@@ -92,6 +92,12 @@ function fetchOneProduct($id) {
             '                    <div class="card-text">\nCamera: ' +
             '                        '+data['data']['List'][0]['camera_description']+'\n</div>\n' +
             '            </div>\n' +
+            '                    <div class="card-footer">\n' +
+            '                    <button class="btn btn-info float-right btn-sm" onclick="fetchComments('+item['id']+')"><small>Comments</small></button>\n' +
+            '                </div>\n' +
+            '                <div class="card-footer">\n' +
+            '                    <button class="btn btn-info float-right btn-sm" onclick="setComment('+item['id']+')"><small>Submit Comment</small></button>\n' +
+            '                </div>\n' +
             +'</div>';
 
             $('#items').html(productDetails);
