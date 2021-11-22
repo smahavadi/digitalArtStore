@@ -49,6 +49,7 @@ function getCart($email) {
     });
 }
 
+//Cherny Devireddy
 function deleteItem($id) {
     $.ajax({
         url: Url + 'RemoveProduct',
