@@ -70,8 +70,29 @@ function fetchOneProduct($id) {
         contentType: 'text/plain',
         data: {"product_id":$id},
         success: function (data) {
-            
-
+            productDetails = ' ';
+            productDetails = '<div class="col-sm-6 col-md-4 col-lg-3 mt-4" id="product'+item['id']+'">\n' +
+            '            <div class="card card-inverse card-info">\n' +
+            '                <img class="card-img-top" src="'+item['image']+'">\n' +
+            '                <div class="card-block">\n' +
+            '                    <h4><span class="badge badge-danger">'+item['price']+'</span></h4>\n' +
+            '                    <div class="meta card-text">\n' +
+            '                        <a style="color: deepskyblue">Category - Cell Phones</a>\n' +
+            '                    </div>\n' +
+            '                    <div class="card-text">\n' +
+            '                        '+item['title'].substring(0,50)+'... more\n' +
+            '                    </div>\n' +
+            '                </div>\n' +
+            '                <div class="card-footer">\n' +
+            '                    <small>More information ...</small>\n' +
+            '                    <button class="btn btn-info float-right btn-sm" onclick="fetchOneProduct('+item['id']+')">Detail</button>\n' +
+            '                </div>\n' +
+            '                <div class="card-footer">\n' +
+            '                    <button class="btn btn-info float-right btn-sm" onclick="addToCart('+item['id']+')">Add to Cart</button>\n' +
+            '                </div>\n' +
+            '            </div>\n' +
+            '        </div>';
+            $('#product-detals').html(productDetails);
         },
         error: function (data) {
             alert("Error while fetching data.");
