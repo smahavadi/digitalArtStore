@@ -63,6 +63,14 @@ function fetchProductList() {
 
 function fetchOneProduct($id) {
     var productDetails;
+    jsonObj = [];
+    jsonObj.push(item);
+
+    !($.trim($('#title').val()) == '') ? item ["title"] = $('#title').val(): '';
+    !($.trim($('#operating_system').val()) == '') ? item ["operating_system"] = $('#operating_system').val(): '';
+    !($.trim($('#min_price').val()) == '') ? item ["price_from"] = $('#min_price').val(): '';
+    !($.trim($('#max_price').val()) == '') ? item ["price_to"] = $('#max_price').val(): '';
+
     $.ajax({
         url: Url+'GetOneProduct',
         type: 'get',
@@ -83,16 +91,9 @@ function fetchOneProduct($id) {
             '                        '+item['title'].substring(0,50)+'... more\n' +
             '                    </div>\n' +
             '                </div>\n' +
-            '                <div class="card-footer">\n' +
-            '                    <small>More information ...</small>\n' +
-            '                    <button class="btn btn-info float-right btn-sm" onclick="fetchOneProduct('+item['id']+')">Detail</button>\n' +
-            '                </div>\n' +
-            '                <div class="card-footer">\n' +
-            '                s    <button class="btn btn-info float-right btn-sm" onclick="addToCart('+item['id']+')">Add to Cart</button>\n' +
-            '                </div>\n' +
             '            </div>\n' +
             '        </div>';
-            $('#product-details').html(productDetails);
+            $('#items').html(productDetails);
         },
         error: function (data) {
             alert("Error while fetching data.");
