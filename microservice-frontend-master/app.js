@@ -62,7 +62,22 @@ function fetchProductList() {
 }
 
 function fetchOneProduct($id) {
-    // function body
+    var productDetails;
+    $.ajax({
+        url: Url+'GetOneProduct',
+        type: 'get',
+        dataType: 'json',
+        contentType: 'text/plain',
+        data: {"product_id":$id},
+        success: function (data) {
+            
+
+        },
+        error: function (data) {
+            alert("Error while fetching data.");
+        }
+
+    });
 }
 
 function fetchComments($id) {
