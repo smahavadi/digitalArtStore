@@ -88,11 +88,11 @@ function fetchOneProduct($id) {
             '                    <button class="btn btn-info float-right btn-sm" onclick="fetchOneProduct('+item['id']+')">Detail</button>\n' +
             '                </div>\n' +
             '                <div class="card-footer">\n' +
-            '                    <button class="btn btn-info float-right btn-sm" onclick="addToCart('+item['id']+')">Add to Cart</button>\n' +
+            '                s    <button class="btn btn-info float-right btn-sm" onclick="addToCart('+item['id']+')">Add to Cart</button>\n' +
             '                </div>\n' +
             '            </div>\n' +
             '        </div>';
-            $('#product-detals').html(productDetails);
+            $('#product-details').html(productDetails);
         },
         error: function (data) {
             alert("Error while fetching data.");
