@@ -63,13 +63,6 @@ function fetchProductList() {
 
 function fetchOneProduct($id) {
     var productDetails;
-    jsonObj = [];
-    jsonObj.push(item);
-
-    !($.trim($('#title').val()) == '') ? item ["title"] = $('#title').val(): '';
-    !($.trim($('#operating_system').val()) == '') ? item ["operating_system"] = $('#operating_system').val(): '';
-    !($.trim($('#min_price').val()) == '') ? item ["price_from"] = $('#min_price').val(): '';
-    !($.trim($('#max_price').val()) == '') ? item ["price_to"] = $('#max_price').val(): '';
 
     $.ajax({
         url: Url+'GetOneProduct',
@@ -78,21 +71,29 @@ function fetchOneProduct($id) {
         contentType: 'text/plain',
         data: {"product_id":$id},
         success: function (data) {
+            console.log(data);
             productDetails = ' ';
-            productDetails = '<div class="col-sm-6 col-md-4 col-lg-3 mt-4" id="product'+item['id']+'">\n' +
+            productDetails = 
+            '<div class="col-sm-6 col-md-4 col-lg-3 mt-4" id="product'+data['data']['List'][0]['id']+'">\n'+
             '            <div class="card card-inverse card-info">\n' +
-            '                <img class="card-img-top" src="'+item['image']+'">\n' +
-            '                <div class="card-block">\n' +
-            '                    <h4><span class="badge badge-danger">'+item['price']+'</span></h4>\n' +
-            '                    <div class="meta card-text">\n' +
-            '                        <a style="color: deepskyblue">Category - Cell Phones</a>\n' +
-            '                    </div>\n' +
-            '                    <div class="card-text">\n' +
-            '                        '+item['title'].substring(0,50)+'... more\n' +
-            '                    </div>\n' +
-            '                </div>\n' +
+            '                <img class="card-img-top" src="'+data['data']['List'][0]['image']+'">\n' +
+                '                <div class="card-block">\n' +
+                '                    <div class="meta card-text">\n' +
+                '                   <strong>'+data['data']['List'][0]['title']+ '</strong>\n' +
+                '                    </div>\n' +
+            '                   <div class="card-text">\nCurrent Price: '
+                                      +data['data']['List'][0]['price']+'</div>\n' +
+            '                    <div class="card-text">\nScreen Size: ' +
+            '                        '+data['data']['List'][0]['screen_size']+'\n</div>\n' +
+            '                    <div class="card-text">\nWeight: ' +
+            '                        '+ data['data']['List'][0]['item_weight']+'\n' +
+            '                    <div class="card-text">\nOperating System: ' +
+            '                        '+data['data']['List'][0]['operating_system']+'\n</div>\n' +
+            '                    <div class="card-text">\nCamera: ' +
+            '                        '+data['data']['List'][0]['camera_description']+'\n</div>\n' +
             '            </div>\n' +
-            '        </div>';
+            +'</div>';
+
             $('#items').html(productDetails);
         },
         error: function (data) {
