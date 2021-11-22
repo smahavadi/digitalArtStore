@@ -63,6 +63,7 @@ function deleteItem($id) {
         error: function (data) {
             alert("Error while fetching data.");
         }
+    });
 }
 
 function checkOut() {
