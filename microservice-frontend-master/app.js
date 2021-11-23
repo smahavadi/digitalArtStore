@@ -81,11 +81,12 @@ function fetchOneProduct($id) {
                         '</div>'+
                    '</div>'+
                     '<div class="details col-md-6">'+
-                        '<h3 class="product-title" style="margin-top: 10px">'+data['data']['List'][0]['title']+'</h3>'+
+                        '<h3 class="product-title" style="margin-top: 10px">'+data['data']['List'][0]['title'].substring(0,50)+'...</h3>'+
                         '<div class="rating">'+
                             '<button class="btn btn-info" id="comment" onclick="fetchComments">'+data['data']['List'][0]['comment_count']+ ' Comments</button>'+
                         '</div>'+
                         '<p class="product-description">' +
+                            data['data']['List'][0]['title']+
                             '<h5 class="price">Current Price: <span>'+data['data']['List'][0]['price']+'</span></h5>'+
                             '<h6 class="price">Screen Size: <span>'+data['data']['List'][0]['screen_size']+'</span></h6>'+
                             '<h6 class="price">Weight: <span>'+data['data']['List'][0]['item_weight']+'</span></h6>'+
