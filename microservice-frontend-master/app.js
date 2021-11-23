@@ -72,33 +72,33 @@ function fetchOneProduct($id) {
         data: {"product_id":$id},
         success: function (data) {
             console.log(data);
-            productDetails = ' ';
-            productDetails = 
-            '<div class="col-sm-6 col-md-4 col-lg-3 mt-4" id="product'+data['data']['List'][0]['id']+'">\n'+
-            '            <div class="card card-inverse card-info">\n' +
-            '                <img class="card-img-top" src="'+data['data']['List'][0]['image']+'">\n' +
-                '                <div class="card-block">\n' +
-                '                    <div class="meta card-text">\n' +
-                '                   <strong>'+data['data']['List'][0]['title']+ '</strong>\n' +
-                '                    </div>\n' +
-            '                   <div class="card-text">\nCurrent Price: '
-                                      +data['data']['List'][0]['price']+'</div>\n' +
-            '                    <div class="card-text">\nScreen Size: ' +
-            '                        '+data['data']['List'][0]['screen_size']+'\n</div>\n' +
-            '                    <div class="card-text">\nWeight: ' +
-            '                        '+ data['data']['List'][0]['item_weight']+'\n' +
-            '                    <div class="card-text">\nOperating System: ' +
-            '                        '+data['data']['List'][0]['operating_system']+'\n</div>\n' +
-            '                    <div class="card-text">\nCamera: ' +
-            '                        '+data['data']['List'][0]['camera_description']+'\n</div>\n' +
-            '            </div>\n' +
-            '                    <div class="card-footer">\n' +
-            '                    <button class="btn btn-info float-right btn-sm" onclick="fetchComments('+item['id']+')"><small>Comments</small></button>\n' +
-            '                </div>\n' +
-            '                <div class="card-footer">\n' +
-            '                    <button class="btn btn-info float-right btn-sm" onclick="setComment('+item['id']+')"><small>Submit Comment</small></button>\n' +
-            '                </div>\n' +
-            +'</div>';
+            productDetails = '<div class="card justify-content-center pagination-centered" style="width:900px; height:auto">'+
+            '<div class="container-fliud">'+
+                '<div class="wrapper row">'+
+                    '<div class="preview col-md-6">'+
+                        '<div class="preview-pic tab-content">'+
+                            '<div class="tab-pane active" id="pic-1"><img src="'+data['data']['List'][0]['image']+'" /></div>'+
+                        '</div>'+
+                   '</div>'+
+                    '<div class="details col-md-6">'+
+                        '<h3 class="product-title" style="margin-top: 10px">'+data['data']['List'][0]['title']+'</h3>'+
+                        '<div class="rating">'+
+                            '<button class="btn btn-info" id="comment" onclick="fetchComments">'+data['data']['List'][0]['comment_count']+ ' Comments</button>'+
+                        '</div>'+
+                        '<p class="product-description">' +
+                            '<h5 class="price">Current Price: <span>'+data['data']['List'][0]['price']+'</span></h5>'+
+                            '<h6 class="price">Screen Size: <span>'+data['data']['List'][0]['screen_size']+'</span></h6>'+
+                            '<h6 class="price">Weight: <span>'+data['data']['List'][0]['item_weight']+'</span></h6>'+
+                            '<h6 class="price">Camera: <span>'+data['data']['List'][0]['camera_description']+'</span></h6>'+
+                            '<h6 class="price">Operating System: <span>'+data['data']['List'][0]['operating_system']+'</span></h6>'+
+                        '</p>'+
+                        '<div class="action">'+
+                            '<button type="button" class="btn btn-warning" data-toggle="modal" id="comment" onclick="setComment">Submit Comment</button>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+        '</div>';
 
             $('#items').html(productDetails);
         },
