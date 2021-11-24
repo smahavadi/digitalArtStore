@@ -66,5 +66,16 @@ function deleteItem($id) {
 }
 
 function checkOut() {
-    // function body
+    $.ajax({
+        url: Url + 'checkout',
+        type: 'put',
+        dataType: 'json',
+        contentType: 'text/plain',
+        success: function (data) {
+            getCart(email);
+        },
+        error: function (data) {
+            alert("Error while fetching data.");
+        }
+    });
 }
