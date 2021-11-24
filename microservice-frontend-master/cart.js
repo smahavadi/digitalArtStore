@@ -68,7 +68,7 @@ function deleteItem($id) {
 function checkOut() {
     $.ajax({
         url: Url + 'checkout',
-        type: 'put',
+        type: 'Put',
         dataType: 'json',
         contentType: 'text/plain',
         success: function (data) {
