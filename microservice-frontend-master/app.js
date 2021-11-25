@@ -184,10 +184,36 @@ function setComment($id) {
     });
 
 }
-
+//Sierra Cubero
 function addToCart($id) {
     // function body
+    var cartItems;
+    var productId;
+    let email =$.trim($('#email').val());
+    if(email != ''){
+        sessionStorage.setItem('#email', email);
+        window.location.href = './cart.html';
+    
+    $.ajax({
+        url: Url+'AddToCart',
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            $('#items').push(cartItems);
+            cartItems = cartItems + productId;
+        },
+        error: function (data) {
+            alert("There was an error, please try again.");
+        }
+        })
+    }
+    else {
+        alert("Please enter your email before adding any items to your cart");
+    }
+
 }
+
 
 function toShoppingCart(){
     let email =$.trim($('#email').val());
